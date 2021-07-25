@@ -13,6 +13,4 @@ class Car < ApplicationRecord
       where('price < ?', price_max)
     end
   }
-
-  attr_accessor :rank_score
 end
