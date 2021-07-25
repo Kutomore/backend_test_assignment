@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'swagger_helper'
 
 describe 'CarRecommendations API', type: :request do
@@ -65,7 +67,7 @@ describe 'CarRecommendations API', type: :request do
                      name: 'Volkswagen'
                    },
                    model: 'Derby',
-                   price: 37230,
+                   price: 37_230,
                    rank_score: '0.945',
                    label: 'perfect_match'
                  },
@@ -76,7 +78,7 @@ describe 'CarRecommendations API', type: :request do
                      name: 'Volkswagen'
                    },
                    model: 'e-Golf',
-                   price: 35131,
+                   price: 35_131,
                    rank_score: nil,
                    label: 'perfect_match'
                  },
@@ -87,7 +89,7 @@ describe 'CarRecommendations API', type: :request do
                      name: 'Volkswagen'
                    },
                    model: 'Amarok',
-                   price: 31743,
+                   price: 31_743,
                    rank_score: nil,
                    label: 'good_match'
                  },
@@ -98,7 +100,7 @@ describe 'CarRecommendations API', type: :request do
                      name: 'Alfa Romeo'
                    },
                    model: 'Brera',
-                   price: 40938,
+                   price: 40_938,
                    rank_score: nil,
                    label: 'good_match'
                  },
@@ -109,7 +111,7 @@ describe 'CarRecommendations API', type: :request do
                      name: 'Audi'
                    },
                    model: '90',
-                   price: 56959,
+                   price: 56_959,
                    rank_score: '0.567',
                    label: nil
                  },
@@ -120,7 +122,7 @@ describe 'CarRecommendations API', type: :request do
                      name: 'Lexus'
                    },
                    model: 'IS 220',
-                   price: 39858,
+                   price: 39_858,
                    rank_score: 0.9489,
                    label: nil
                  },
@@ -273,7 +275,7 @@ describe 'CarRecommendations API', type: :request do
         let(:user_id) { FactoryBot.create(:user_with_preferred_brands).id.to_s }
         let(:query) { Brand.first.name }
         let(:price_min) { 0 }
-        let(:price_max) { 100000 }
+        let(:price_max) { 100_000 }
         run_test!
       end
 
@@ -287,7 +289,7 @@ describe 'CarRecommendations API', type: :request do
                properties: {
                  error: { type: :string }
                },
-               required: [ 'error' ],
+               required: ['error'],
                example: [
                  {
                    error: 'param is missing or the value is empty: user_id'
