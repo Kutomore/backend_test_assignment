@@ -170,7 +170,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   bootsnap (>= 1.4.4)
   byebug
-  kaminari
+  kaminari (~> 1.2.1)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)

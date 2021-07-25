@@ -1,6 +1,9 @@
 class CarRecommendationsController < ApplicationController
   def index
-    render json: GetCarRecommendationsService.perform(car_recommendations_params), each_serializer: CarRecommendationSerializer
+    render json:
+             GetCarRecommendationsService.perform(car_recommendations_params).page(car_recommendations_params[:page]).per(20),
+           each_serializer:
+             CarRecommendationSerializer
   end
 
   private
