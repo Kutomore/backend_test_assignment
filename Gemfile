@@ -14,11 +14,18 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'faker', '~> 2.18.0'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
