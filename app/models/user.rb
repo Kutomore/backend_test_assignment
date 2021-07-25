@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  require 'uri'
+  require 'net/http'
+
   has_many :user_preferred_brands, dependent: :destroy
   has_many :preferred_brands, through: :user_preferred_brands, source: :brand
 
@@ -13,7 +16,7 @@ class User < ApplicationRecord
     #{
       unless ai_recommendations.blank?
         ",CASE
-          #{ai_recommendations.map{ |recommendation| "WHEN cars.id = #{recommendation[:car_id]} THEN #{recommendation[:rank_score]}" }&.join(',')&.tr(',', ' ')}
+          #{ai_recommendations.map{ |recommendation| "WHEN cars.id = #{recommendation["car_id"]} THEN #{recommendation["rank_score"]}" }&.join(',')&.tr(',', ' ')}
         END as rank_score"
       end
     }

@@ -19,7 +19,7 @@ class GetCarRecommendationsService
   end
 
   def ai_recommendations
-    [{car_id: 179, rank_score: 0.999}]
+    JSON.parse(Net::HTTP.get_response(URI("https://bravado-images-production.s3.amazonaws.com/recomended_cars.json?user_id=#{user.id}")).body)[0,4]
   end
 
   attr_accessor :params, :user
