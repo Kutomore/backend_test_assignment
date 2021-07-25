@@ -56,9 +56,14 @@ After the server is started the api can be seen at
 localhost:3000/
 ```
 
-Some basic documentation can be seen at:
+Some basic documentation can be seen at
 ```
 localhost:3000/api-docs
+```
+
+Testing can be ran, as long as the containers are up, with:
+```
+docker-compose exec web bundle exec rspec
 ```
 
 The requested endpoint is at /car_recommendations
