@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   require 'uri'
   require 'net/http'
@@ -16,7 +18,9 @@ class User < ApplicationRecord
     #{
       unless ai_recommendations.blank?
         ",CASE
-          #{ai_recommendations.map{ |recommendation| "WHEN cars.id = #{recommendation["car_id"]} THEN #{recommendation["rank_score"]}" }&.join(',')&.tr(',', ' ')}
+          #{ai_recommendations.map do |recommendation|
+              "WHEN cars.id = #{recommendation['car_id']} THEN #{recommendation['rank_score']}"
+            end&.join(',')&.tr(',', ' ')}
         END as rank_score"
       end
     }
